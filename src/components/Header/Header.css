@@ -1,0 +1,15 @@
+.product-filter {
+  flex-direction: column;
+}
+
+.sort {
+  align-self: flex-start;
+}
+.collection-sort {
+  display: flex;
+  flex-direction: column;
+}
+
+.collection-sort:first-child {
+  padding-right: 20px;
+}
