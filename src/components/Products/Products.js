@@ -1,40 +1,23 @@
 import "./Products.css";
 import Product from "../Product/Product";
+import React from "react";
 
-// function Products({ products }) {
-//   return (
-//     <section className="products">
-//       {products.map((product) => (
-//         <h1 key={Product.id}>
-//           <Product
-//             id={product.id}
-//             title={product.title}
-//             price={product.price}
-//             description={product.description}
-//             category={product.description}
-//             image={product.image}
-//             rating={product.rating}
-//           />
-//         </h1>
-//       ))}
-//     </section>
-//   );
-
-function Products() {
+function Products({ productsList }) {
   return (
     <section className="products">
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
+      {productsList.map((product) => (
+        <Product
+          key={product.id}
+          id={product.id}
+          title={product.title}
+          price={product.price}
+          description={product.description}
+          category={product.category}
+          image={product.image}
+          rating={product.rating}
+        />
+      ))}
     </section>
   );
 }
-
 export default Products;
