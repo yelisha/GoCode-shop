@@ -287,9 +287,9 @@ function App() {
 
   return (
     <div className="App">
-      {/*  <Header />
-      <Products />*/}
-      <Other />
+      <Header />
+      <Products />
+      {/* <Other />*/}
     </div>
   );
 }

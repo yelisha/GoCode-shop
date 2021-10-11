@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Other() {
+export default function TextDis() {
   const [count, setCount] = useState(0);
 
   return (
