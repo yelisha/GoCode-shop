@@ -1,23 +1,20 @@
-import './Header.css';
+import "./Header.css";
+import { useState } from "react";
+import Products from "../Products/Products";
+import App from "../../App";
 
-
-function Header (){
-  return(
+function Header({ categoriesList, selectedCategory }) {
+  return (
     <nav class="product-filter">
       <h1>Jackets</h1>
 
       <div className="sort">
         <div className="collection-sort">
           <label>Filter by:</label>
-          <select>
-            <option value="/">All Jackets</option>
-            <option value="/">2016</option>
-            <option value="/">jacket</option>
-            <option value="/">Jackets</option>
-            <option value="/">layers</option>
-            <option value="/">Obermeyer</option>
-            <option value="/">Roxy</option>
-            <option value="/">womens</option>
+          <select onChange={(c) => selectedCategory(c.target.value)}>
+            {categoriesList.map((category) => (
+              <option>{category}</option>
+            ))}
           </select>
         </div>
 
@@ -36,6 +33,6 @@ function Header (){
         </div>
       </div>
     </nav>
-  ); 
+  );
 }
 export default Header;

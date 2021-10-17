@@ -1,15 +1,13 @@
 import logo from "./logo.svg";
 import "./App.css";
-import other from "./components/other";
+import other from "./components/TextDis";
+import { useState } from "react";
 
 import Products from "./components/Products/Products";
 import Header from "./components/Header/Header";
-import Other from "./components/other";
-function App() {
-  const products = [
-    // 20211010212230
-    // https://fakestoreapi.com/products
-
+import Other from "./components/TextDis";
+function App({}) {
+  const products_ = [
     {
       id: 1,
       title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -277,12 +275,21 @@ function App() {
       },
     },
   ];
+  const categories = products_
+    .map((p) => p.category)
+    .filter((value, index, array) => array.indexOf(value) === index);
+
+  const [selectedProduct, setCategory] = useState(products_);
+
+  const selectedCategory = (category) => {
+    setCategory(products_.filter((product) => product.category === category));
+  };
 
   return (
     <div className="App">
-      <Header />
-      <Products productsList={products} />
-      {/* <Other />*/}
+      <Header categoriesList={categories} selectedCategory={selectedCategory} />
+      <Products productsList={selectedProduct} />
+      {/* <TextDis />*/}
     </div>
   );
 }
